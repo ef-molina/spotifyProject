@@ -6,12 +6,12 @@ import { searchIcon } from '../../utils/constants';
 const SearchBar = () => {
   const [query, setQuery] = useState('');
 
+  const navigate = useNavigate(); // used to navigate to different page
+
   const handleSubmit = (e) => {
     e.preventDefault(); // keeps page from reloading
 
-    const navigate = useNavigate(); // used to navigate to different page
-
-    if (query.length > 0) navigate(`/search/${searchQuery}`); // navigates to searchFeed
+    if (query.length > 0) navigate(`/search/${query}`); // navigates to searchFeed
 
     setQuery(''); // clears out the search field
   };
