@@ -3,3 +3,4 @@ export { default as Artists } from './Artists';
 export { default as Library } from './Library';
 export { default as Playlists } from './Playlists';
 export { default as SearchFeed } from './SearchFeed';
+export { default as SearchBar } from './SearchBar';
