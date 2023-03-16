@@ -9,6 +9,11 @@
   border-style: none;
 }
 
+a {
+  text-decoration: none;
+  color: var(--color-info-light);
+}
+
 a:hover {
   color: #535bf2;
 }
