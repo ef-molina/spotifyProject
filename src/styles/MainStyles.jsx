@@ -26,6 +26,31 @@ export const Flex = styled.div`
   overflow: auto;
 `;
 
+export const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  /* grid-auto-rows: minmax(22%, 32%); */
+  grid-auto-flow: row;
+  height: fit-content;
+  gap: 1rem;
+
+  @media screen and (max-width: 1000px) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  @media screen and (max-width: 800px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media screen and (max-width: 600px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media screen and (max-width: 500px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+`;
+
 export const Button = styled.a`
   border-style: none;
   margin: 2rem;

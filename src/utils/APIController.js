@@ -79,6 +79,6 @@ export const fetchFromApi = async (url) => {
     // console.log(data);
     return data;
   } catch (error) {
-    console.log('erroororoor ', error.message);
+    console.log('error ', error.message);
   }
 };
