@@ -16,9 +16,14 @@ const LibraryRow = ({ track, index, images }) => {
   };
 
   return (
-    <LibRow onClick={handleClick} padding='1rem' gap='1rem'>
+    <LibRow
+      onClick={handleClick}
+      padding='1rem'
+      gap='1rem'
+      height='fit-content'
+    >
       <Flex
-        width='5%'
+        width='fit-contnet'
         justifyContent='center'
         alignItems='center'
         // border='1px solid red'
@@ -30,7 +35,7 @@ const LibraryRow = ({ track, index, images }) => {
         <MutedText>{track?.artists[0]?.name}</MutedText>
       </Flex>
       <Flex
-        width='5%'
+        width='fit-contnent'
         justifyContent='center'
         alignItems='center'
         // border='1px solid red'
@@ -75,7 +80,7 @@ const AlbumDetails = () => {
 
   return (
     <Flex direction='column' overflowY='auto'>
-      <Flex>
+      <Flex height='40%' overflow='initial'>
         <Flex justifyContent='center' alightItems='center' padding='2rem'>
           <img src={selectedAlbum?.images[0]?.url} />
         </Flex>

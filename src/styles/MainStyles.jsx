@@ -23,7 +23,7 @@ export const Flex = styled.div`
   overflow-y: ${({ overflowY }) => overflowY};
   overflow-x: ${({ overflowX }) => overflowX};
   padding: ${({ padding }) => padding};
-  overflow: auto;
+  overflow: ${({ overflow }) => overflow || 'auto'};
 `;
 
 export const Grid = styled.div`

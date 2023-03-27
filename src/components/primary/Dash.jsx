@@ -25,6 +25,7 @@ const Dash = () => {
         `recommendations?seed_genres=hip-hop`
       ).then((res) => res.tracks);
     };
+
     fetchData()
       .then(() => {
         setTopAlbums(albums);

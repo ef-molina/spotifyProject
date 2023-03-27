@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Flex, Grid } from '../../styles/MainStyles';
+import { Grid } from '../../styles/MainStyles';
 import { fetchFromApi } from '../../utils/APIController';
 import { AlbumCard } from './Cards';
 

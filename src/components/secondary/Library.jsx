@@ -47,7 +47,13 @@ const Library = () => {
 
   useEffect(() => {
     console.log('Library page load.');
-    fetchFromApi('me/tracks?limit=50').then((res) => setLibraryTracks(res));
+    fetchFromApi('me/tracks?limit=50')
+      .then((res) => {
+        if (res.error) throw res.error;
+
+        if (!res.error) setLibraryTracks(res);
+      })
+      .catch((error) => console.log(error));
   }, []);
 
   const libraryArray = libraryTracks?.items?.map(({ track }, index) => (
