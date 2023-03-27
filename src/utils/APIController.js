@@ -22,8 +22,8 @@ const SCOPES = [
   'user-follow-modify',
 ];
 
-const redirectURI = 'http://localhost:5173/';
-// const redirectURI = 'https://spotify-clone-dusky-omega.vercel.app/';
+const redirectURI = 'https://spotify-project-pied.vercel.app/';
+// const redirectURI = 'http://localhost:5173/';
 
 const token = localStorage.getItem('access_token');
 
