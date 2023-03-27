@@ -11,8 +11,6 @@ const Dash = () => {
   const [newReleases, setNewReleases] = useState();
   const [recomendations, setRecommendations] = useState();
 
-  console.log(recentlyPlayed);
-
   useEffect(() => {
     console.log('dash page load');
     let { albums, recents, releases, recommends } = {};

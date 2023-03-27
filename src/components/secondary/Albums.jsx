@@ -11,7 +11,10 @@ const Albums = () => {
   useEffect(() => {
     console.log('albums page loaded');
     fetchFromApi('me/albums?limit=30')
-      .then((res) => setAlbums(res.items))
+      .then((res) => {
+        if (res.error) throw res.error;
+        if (!res.error) setAlbums(res.items);
+      })
       .catch((err) => console.log(err));
   }, []);
 

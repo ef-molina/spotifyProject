@@ -1,7 +1,12 @@
 import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Dash, Navbar, PlaybackBar, Sidebar } from './components/primary';
-import Login from './components/primary/Login';
+import {
+  Dash,
+  Navbar,
+  PlaybackBar,
+  Sidebar,
+  Login,
+} from './components/primary';
 import {
   Library,
   Albums,
@@ -10,6 +15,11 @@ import {
   UserProfile,
   SearchFeed,
 } from './components/secondary';
+import {
+  AlbumDetails,
+  ArtistDetails,
+  PlaylistDetails,
+} from './components/details';
 import { AppContainer, Flex } from './styles/MainStyles'; // these are custom styled components
 
 // when app loads, checks local storage for access token, if so then display dash, if not show login page
@@ -41,15 +51,15 @@ function App() {
                 <Route path='/library' element={<Library />} />
                 <Route path='/albums'>
                   <Route index element={<Albums />} />
-                  {/* <Route path=':id' element={<AlbumDetails />} /> */}
+                  <Route path=':id' element={<AlbumDetails />} />
                 </Route>
                 <Route path='/artists'>
                   <Route index element={<Artists />} />
-                  {/* <Route path=':id' element={<ArtistDetails />} /> */}
+                  <Route path=':id' element={<ArtistDetails />} />
                 </Route>
                 <Route path='/playlists'>
                   <Route index element={<Playlists />} />
-                  {/* <Route path=':id' element={<PlaylistDetails />} /> */}
+                  <Route path=':id' element={<PlaylistDetails />} />
                 </Route>
                 <Route path='/user' element={<UserProfile />} />
                 <Route path='/search/:query' element={<SearchFeed />} />
