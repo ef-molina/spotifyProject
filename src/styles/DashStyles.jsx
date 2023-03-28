@@ -22,5 +22,7 @@ export const ScrollRow = styled.div`
   overflow-x: scroll;
   gap: 0.5rem;
   padding-bottom: 0.3rem;
-  min-height: 42%;
+  min-height: 40%;
 `;
+
+// issue with the scroll row container not automatically detecting height to fit all content, without it, the div collapses

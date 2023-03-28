@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 const imgSty = {
   boxShadow: '1px 1px 4px 2px rgba(0, 0, 0, 0.2)',
-  maxWidth: '100%',
 };
 
 export const ThinCard = ({ album }) => {
@@ -54,7 +53,7 @@ export const AlbumCard = ({ album }) => {
 
   if (album)
     return (
-      <CardContainer direction='column' width='15%'>
+      <CardContainer direction='column'>
         <Link to={`/albums/${id}`}>
           <img src={images[0]?.url} style={imgSty} />
           <Flex direction='column' gap='.5rem' padding='.5rem 0'>

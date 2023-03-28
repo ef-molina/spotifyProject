@@ -38,11 +38,12 @@ export const CardContainer = styled.div`
 
 export const TitleText = styled.h4`
   text-overflow: ellipsis;
-  overflow-wrap: hidden;
-  width: fit-content;
-  overflow-x: hidden;
+  /* overflow-wrap: hidden; */
+  /* width: fit-content; */
+  overflow: hidden;
+  white-space: nowrap;
 `;
 
-export const MutedText = styled.p`
+export const MutedText = styled.h5`
   color: #dce1ebbe;
 `;
