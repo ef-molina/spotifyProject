@@ -26,6 +26,7 @@ const LibraryRow = ({ track, index, images }) => {
         width='fit-contnet'
         justifyContent='center'
         alignItems='center'
+        padding='0rem .2rem'
         // border='1px solid red'
       >
         {index + 1}.
@@ -35,7 +36,8 @@ const LibraryRow = ({ track, index, images }) => {
         <MutedText>{track?.artists[0]?.name}</MutedText>
       </Flex>
       <Flex
-        width='fit-contnent'
+        width='fit-content'
+        padding='0rem .2rem'
         justifyContent='center'
         alignItems='center'
         // border='1px solid red'

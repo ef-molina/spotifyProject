@@ -11,7 +11,7 @@ export const SearchInputField = styled.form`
   width: 30%;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 
   @media screen and (max-width: 999px) {
     width: 50%;

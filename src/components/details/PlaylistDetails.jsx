@@ -26,6 +26,7 @@ const LibraryRow = ({ track, index }) => {
         width='fit-contnet'
         justifyContent='center'
         alignItems='center'
+        padding='0rem .2rem'
         // border='1px solid red'
       >
         {index + 1}.
@@ -38,6 +39,7 @@ const LibraryRow = ({ track, index }) => {
         width='fit-contnent'
         justifyContent='center'
         alignItems='center'
+        padding='0rem .2rem'
         // border='1px solid red'
       >
         {controlDuration(track.duration_ms)}

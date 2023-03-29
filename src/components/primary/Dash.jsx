@@ -11,32 +11,31 @@ const Dash = () => {
   const [newReleases, setNewReleases] = useState();
   const [recomendations, setRecommendations] = useState();
 
+  const fetchData = async () => {
+    try {
+      const [albums, recents, releases, recommends] = await Promise.all([
+        fetchFromApi(`me/albums?limit=6`),
+        fetchFromApi(`me/player/recently-played`),
+        fetchFromApi(`browse/new-releases?country=us`).then(
+          (res) => res.albums
+        ),
+        fetchFromApi(`recommendations?seed_genres=hip-hop`).then(
+          (res) => res.tracks
+        ),
+      ]);
+      setTopAlbums(albums);
+      setRecentlyPlayed(recents);
+      setNewReleases(releases);
+      setRecommendations(recommends);
+    } catch (error) {
+      console.log(error);
+      handleReject();
+    }
+  };
+
   useEffect(() => {
     console.log('dash page load');
-    let { albums, recents, releases, recommends } = {};
-
-    const fetchData = async () => {
-      albums = await fetchFromApi(`me/albums?limit=6`);
-      recents = await fetchFromApi(`me/player/recently-played`);
-      releases = await fetchFromApi(`browse/new-releases?country=us`).then(
-        (res) => res.albums
-      );
-      recommends = await fetchFromApi(
-        `recommendations?seed_genres=hip-hop`
-      ).then((res) => res.tracks);
-    };
-
-    fetchData()
-      .then(() => {
-        setTopAlbums(albums);
-        setRecentlyPlayed(recents);
-        setNewReleases(releases);
-        setRecommendations(recommends);
-      })
-      .catch((error) => {
-        console.log(error);
-        handleReject();
-      });
+    fetchData();
   }, []);
 
   const topSixAlbums = topAlbums?.items.map(({ album }) => (
@@ -56,7 +55,6 @@ const Dash = () => {
   const newRecommendations = recomendations?.map((track) => (
     <TrackCard key={track.id} track={track} />
   ));
-  console.log(newRecommendations);
 
   while (!recomendations) return <h2> loading...</h2>;
 
@@ -74,3 +72,31 @@ const Dash = () => {
 };
 
 export default Dash;
+
+// useEffect(() => {
+//   console.log('dash page load');
+//   let { albums, recents, releases, recommends } = {};
+
+//   const fetchData = async () => {
+//     albums = await fetchFromApi(`me/albums?limit=6`);
+//     recents = await fetchFromApi(`me/player/recently-played`);
+//     releases = await fetchFromApi(`browse/new-releases?country=us`).then(
+//       (res) => res.albums
+//     );
+//     recommends = await fetchFromApi(`recommendations?seed_genres=hip-hop`).then(
+//       (res) => res.tracks
+//     );
+//   };
+
+//   fetchData()
+//     .then(() => {
+//       setTopAlbums(albums);
+//       setRecentlyPlayed(recents);
+//       setNewReleases(releases);
+//       setRecommendations(recommends);
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//       handleReject();
+//     });
+// }, []);

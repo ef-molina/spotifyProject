@@ -45,7 +45,7 @@ function App() {
           <Navbar handleReject={handleReject} />
           <Flex gap='0.5rem'>
             <Sidebar />
-            <Flex overflowY='scroll' border='1px solid white'>
+            <Flex overflowY='scroll'>
               <Routes>
                 <Route path='/' element={<Dash />} />
                 <Route path='/library' element={<Library />} />

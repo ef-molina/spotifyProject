@@ -31,12 +31,12 @@ const Navbar = ({ handleReject }) => {
     <Flex
       alignItems='center'
       justifyContent='space-between'
-      border='1px solid white'
+      // border='1px solid white'
       padding='.5rem'
     >
       <Link to='/' style={{ display: 'flex', alignItems: 'center' }}>
-        <LargeLogo src={largeLogo} height={40} border='1px solid white' />
-        <SmallLogo src={smallLogo} height={40} border='1px solid white' />
+        <LargeLogo src={largeLogo} height={40} />
+        <SmallLogo src={smallLogo} height={40} />
       </Link>
       <SearchBar />
       <UserIcon userInfo={userInfo} />

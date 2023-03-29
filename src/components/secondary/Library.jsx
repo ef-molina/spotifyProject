@@ -17,10 +17,10 @@ const LibraryRow = ({ track, index }) => {
   return (
     <LibRow onClick={handleClick} padding='1rem' gap='1rem'>
       <Flex
-        width='5%'
+        width='fit-content'
         justifyContent='center'
         alignItems='center'
-        // border='1px solid red'
+        padding='0rem .2rem'
       >
         {index + 1}.
       </Flex>
@@ -29,10 +29,10 @@ const LibraryRow = ({ track, index }) => {
         <MutedText>{track?.artists[0]?.name}</MutedText>
       </Flex>
       <Flex
-        width='5%'
+        width='fit-content'
         justifyContent='center'
         alignItems='center'
-        // border='1px solid red'
+        padding='0rem .2rem'
       >
         {controlDuration(track.duration_ms)}
       </Flex>

@@ -23,7 +23,7 @@ export const ThinCard = ({ album }) => {
 
 export const TrackCard = ({ track }) => {
   const {
-    album: { images },
+    album: { images, id: albumid },
     artists,
     name,
     id,
@@ -39,11 +39,13 @@ export const TrackCard = ({ track }) => {
   if (track)
     return (
       <CardContainer onClick={handleClick} direction='column'>
-        <img src={images[0]?.url} style={imgSty} />
-        <Flex direction='column' gap='.5rem' padding='.5rem 0'>
-          <TitleText>{name}</TitleText>
-          <MutedText>{artists[0]?.name}</MutedText>
-        </Flex>
+        <Link to={`/albums/${albumid}`}>
+          <img src={images[1]?.url} style={imgSty} />
+          <Flex direction='column' gap='.5rem' padding='.5rem 0'>
+            <TitleText>{name}</TitleText>
+            <MutedText>{artists[0]?.name}</MutedText>
+          </Flex>
+        </Link>
       </CardContainer>
     );
 };
@@ -55,7 +57,7 @@ export const AlbumCard = ({ album }) => {
     return (
       <CardContainer direction='column'>
         <Link to={`/albums/${id}`}>
-          <img src={images[0]?.url} style={imgSty} />
+          <img src={images[1]?.url} style={imgSty} />
           <Flex direction='column' gap='.5rem' padding='.5rem 0'>
             <TitleText>{name}</TitleText>
             <MutedText>{artists[0]?.name}</MutedText>
@@ -72,7 +74,7 @@ export const ArtistCard = ({ artist }) => {
     return (
       <CardContainer direction='column'>
         <Link to={`/artists/${id}`}>
-          <img src={images[0]?.url} style={imgSty} />
+          <img src={images[1]?.url} style={imgSty} />
           <Flex direction='column' gap='.5rem' padding='.5rem 0'>
             <TitleText>{name}</TitleText>
           </Flex>

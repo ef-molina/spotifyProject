@@ -21,7 +21,7 @@ const Sidebar = () => {
   };
 
   return (
-    <Flex direction='column' border='1px solid white' width='fit-content'>
+    <Flex direction='column' width='fit-content'>
       {sidebarCategories.map((category) =>
         category.id === activeMenu ? (
           <MenuItem

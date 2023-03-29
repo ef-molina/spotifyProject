@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const AppContainer = styled.div`
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display: grid;
   grid-template-rows: 1fr 8fr 1fr; //navbar, main, footer
   gap: 0.5rem;
