@@ -27,14 +27,10 @@ const redirectURI = 'https://spotify-project-pied.vercel.app/';
 
 const token = localStorage.getItem('access_token');
 
-export const AUTH_URL = `https://accounts.spotify.com/authorize?client_id=${
-  import.meta.env.VITE_REACT_APP_CLIENT_ID
-}&response_type=code&redirect_uri=${redirectURI}&scope=${SCOPES.join('%20')}`;
+export const AUTH_URL = `https://accounts.spotify.com/authorize?client_id=${import.meta.env.VITE_REACT_APP_CLIENT_ID}&response_type=code&redirect_uri=${redirectURI}&scope=${SCOPES.join('%20')}`;
 
 export const fetchToken = async (code) => {
-  const body = `grant_type=authorization_code&code=${code}&redirect_uri=${encodeURI(
-    redirectURI
-  )}&client_id=${import.meta.env.VITE_REACT_APP_CLIENT_ID}&client_secret=${
+  const body = `grant_type=authorization_code&code=${code}&redirect_uri=${encodeURI(redirectURI)}&client_id=${import.meta.env.VITE_REACT_APP_CLIENT_ID}&client_secret=${
     import.meta.env.VITE_REACT_APP_CLIENT_SECRET
   }`;
 
@@ -43,13 +39,7 @@ export const fetchToken = async (code) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
-        Authorization:
-          'Basic ' +
-          btoa(
-            import.meta.env.VITE_REACT_APP_CLIENT_ID +
-              ':' +
-              import.meta.env.VITE_REACT_APP_CLIENT_SECRET
-          ),
+        Authorization: 'Basic ' + btoa(import.meta.env.VITE_REACT_APP_CLIENT_ID + ':' + import.meta.env.VITE_REACT_APP_CLIENT_SECRET),
       },
       body: body,
     });

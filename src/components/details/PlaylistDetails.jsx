@@ -8,20 +8,13 @@ import { controlDuration } from '../../utils/constants';
 
 const LibraryRow = ({ track, index }) => {
   const handleClick = (e) => {
-    // document.querySelector('.currentTrackImage').src =
-    //   track?.album?.images[2]?.url;
-    // document.querySelector('.currentTrackTitle').innerText = track?.name;
-    // document.querySelector('.currentTrackArtist').innerText =
-    //   track?.artists[0]?.name;
+    document.querySelector('.currentTrackImage').src = track?.album?.images[2]?.url;
+    document.querySelector('.currentTrackTitle').innerText = track?.name;
+    document.querySelector('.currentTrackArtist').innerText = track?.artists[0]?.name;
   };
 
   return (
-    <LibRow
-      onClick={handleClick}
-      padding='1rem'
-      gap='1rem'
-      height='fit-content'
-    >
+    <LibRow onClick={handleClick} padding='1rem' gap='1rem' height='fit-content'>
       <Flex
         width='fit-contnet'
         justifyContent='center'
@@ -36,7 +29,7 @@ const LibraryRow = ({ track, index }) => {
         <MutedText>{track?.artists[0]?.name}</MutedText>
       </Flex>
       <Flex
-        width='fit-contnent'
+        width='auto'
         justifyContent='center'
         alignItems='center'
         padding='0rem .2rem'
@@ -67,11 +60,7 @@ const PlaylistDetails = () => {
       .catch((error) => console.log(error));
   }, []);
 
-  const selectedPlaylistTracksArray = selectedPlaylist?.tracks?.items?.map(
-    ({ track }, index) => (
-      <LibraryRow key={track?.id} track={track} index={index} />
-    )
-  );
+  const selectedPlaylistTracksArray = selectedPlaylist?.tracks?.items?.map(({ track }, index) => <LibraryRow key={track?.id} track={track} index={index} />);
 
   while (!selectedPlaylistTracksArray) return <h2>loading...</h2>;
 

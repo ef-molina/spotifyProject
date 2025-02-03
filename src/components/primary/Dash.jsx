@@ -16,20 +16,20 @@ const Dash = () => {
       const [albums, recents, releases, recommends] = await Promise.all([
         fetchFromApi(`me/albums?limit=6`),
         fetchFromApi(`me/player/recently-played`),
-        fetchFromApi(`browse/new-releases?country=us`).then(
-          (res) => res.albums
-        ),
-        fetchFromApi(`recommendations?seed_genres=hip-hop`).then(
-          (res) => res.tracks
-        ),
+        fetchFromApi(`browse/new-releases?country=us`).then((res) => res.albums),
+        fetchFromApi(`recommendations?seed_genres=rap`)
+          .then((res) => res.tracks)
+          .catch((error) => {
+            console.error('Failed to fetch recommendations:', error);
+            return []; // fallback if the recommendations API call fails
+          }),
       ]);
       setTopAlbums(albums);
       setRecentlyPlayed(recents);
       setNewReleases(releases);
       setRecommendations(recommends);
     } catch (error) {
-      console.log(error);
-      handleReject();
+      console.log('Error fetching data:', error);
     }
   };
 
@@ -44,17 +44,11 @@ const Dash = () => {
     </Link>
   ));
 
-  const recentlyPlayedAlbums = recentlyPlayed?.items.map(({ track }) => (
-    <TrackCard key={track.id} track={track} />
-  ));
+  const recentlyPlayedAlbums = recentlyPlayed?.items.map(({ track }) => <TrackCard key={track.id} track={track} />);
 
-  const newReleasedAlbums = newReleases?.items.map((album) => (
-    <AlbumCard key={album.id} album={album} />
-  ));
+  const newReleasedAlbums = newReleases?.items.map((album) => <AlbumCard key={album.id} album={album} />);
 
-  const newRecommendations = recomendations?.map((track) => (
-    <TrackCard key={track.id} track={track} />
-  ));
+  const newRecommendations = recomendations?.map((track) => <TrackCard key={track.id} track={track} />);
 
   while (!recomendations) return <h2> loading...</h2>;
 
